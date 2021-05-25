@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<form action="" method="post" style="display: flex; justify-content: start; max-width: 300px">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+        </table>
+    <input type="submit" value="Добавить новый номер" />
+
+</form>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>
+        surname
+        </th>
+    <th>
+        name
+    </th>
+    <th>
+        phone number
+    </th>
+    </tr>
+        </thead>
+    <tbody>
+    {% csrf_token %}
+    {% for i in all %}
+    <tr>
+        <td>{{i.surname}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.phone_number}}</td>
+    </tr>
+{% endfor %}
+    </tbody>
+    </table>
+</body>
+</html>
